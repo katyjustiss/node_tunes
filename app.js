@@ -14,12 +14,18 @@ app.use(require('less-middleware')('public'));
 app.use(express.static('public'));
 app.locals.title = 'Node Tunes';
 
+//access to database variables
+if(process.env.NODE_ENV !== 'production') {
+  require('./lib/secrets');
+}
+require('./lib/mongodb');
+
 //routes
 app.use('/', artists);
 app.use('/albums', albums);
 app.use('/songs', songs);
 
-//errors
+//ERROR HANDLING
 app.use(function (req, res, next) {
   res.status(403);
   res.send('Unauthorized');
