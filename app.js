@@ -9,9 +9,7 @@ var artists = require('./routes/artists');
 var albums = require('./routes/albums');
 var songs = require('./routes/songs');
 
-//middlewares
-app.use(require('less-middleware')('public'));
-app.use(express.static('public'));
+
 app.locals.title = 'Node Tunes';
 
 //access to database variables
@@ -19,6 +17,8 @@ if(process.env.NODE_ENV !== 'production') {
   require('./lib/secrets');
 }
 require('./lib/mongodb');
+
+app.use(bodyParser.urlencoded({extended:false}))
 
 //routes
 app.use('/', artists);
