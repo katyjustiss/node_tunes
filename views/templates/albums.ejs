@@ -5,13 +5,35 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="data:;base64,iVBORw0KGgo=">
         <title><%= title %> | 'All the Awesome Albums'</title>
-
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/main.css">
     </head>
     <body>
+      <a href="/">Artists</a>
 
       <h1>Albums</h1>
-
+      <form action="get">
+      <div class="form-group">
+          <label for="name">Artist Name:</label>
+          <input name="name" type="text">
+          <button type="submit" class="btn btn-info btn_search">Search</button>
+        </div>
+      </form>
+      <div class="artist_match">
+        <form action='/albums/new' method='POST'>
+            <label for="selected">Select Artist:</label>
+            <select name="selected" class="selected-artist">
+            </select>
+          <div>
+            <label for="album-name">Name of Album:</label>
+            <input type="text" name="album" placeholder="Album">
+          </div>
+          <input class='btn btn-primary' type="submit" value="Submit">
+        </form>
+      </div>
+      <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+      <script src="/js/albums.js"></script>
     </body>
 </html>

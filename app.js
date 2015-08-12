@@ -18,7 +18,8 @@ if(process.env.NODE_ENV !== 'production') {
 }
 require('./lib/mongodb');
 
-app.use(bodyParser.urlencoded({extended:false}))
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(express.static('public'));
 
 //routes
 app.use('/', artists);
