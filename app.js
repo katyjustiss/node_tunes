@@ -19,12 +19,13 @@ if(process.env.NODE_ENV !== 'production') {
 require('./lib/mongodb');
 
 app.use(bodyParser.urlencoded({extended:false}));
-app.use(express.static('public'));
 
 //routes
 app.use('/', artists);
 app.use('/albums', albums);
 app.use('/songs', songs);
+
+app.use(express.static('public'));
 
 //ERROR HANDLING
 app.use(function (req, res, next) {

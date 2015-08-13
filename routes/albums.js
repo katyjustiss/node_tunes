@@ -8,12 +8,11 @@ router.get('/', function(req, res) {
 
 router.get('/search', function(req, res) {
   var collection = global.db.collection('artists');
-  var artistName = new RegExp(req.query.name,"i");
+  var artistName = new RegExp(req.query.name,"i"); //try {name: {$regex: req.query.name}}
   collection.find({name: artistName}, function(err, cursor) {
     cursor.toArray(function(err, artists) {
       res.send(artists);
     })
-    //res.render('templates/artists');
   });
 
 });
@@ -25,11 +24,7 @@ router.post('/new', function(req,res) {
     artist: ObjectID(req.body.selected)
   };
   collection.save(album, function(err, data) {
-    console.log(data.ops[0].artist) //ops: array with obj
-     //ops: [ { album: 'Please Please Me',
-       //artist: 55ca12515745d4a7febf4bbb,
-       //_id: 55cba299448af19de5d07abd } ] }
-    var artistID = data.ops[0].artist;
+    var artistID = data.ops[0].artist; //only need these if redirecting to a page that uses in url
     var albumID = data.ops[0]._id;
     res.redirect('/')
       //want to redirect to specific page?

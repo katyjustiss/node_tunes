@@ -1,3 +1,20 @@
 h1{
   color:#3d59ab
 }
+
+.artist_table, .artist_search{
+  width: 300px;
+  margin: 3% 3%;
+  padding: 2%;
+  border: 1px grey solid;
+  float: left;
+}
+
+.artist_block {
+  margin: 4% auto;
+  width: 600px;
+  padding: 4%;
+  -webkit-box-shadow: 0px 5px 5px 2px rgba(0,0,0,0.39);
+  -moz-box-shadow: 0px 5px 5px 2px rgba(0,0,0,0.39);
+  box-shadow: 0px 5px 5px 2px rgba(0,0,0,0.39);
+}

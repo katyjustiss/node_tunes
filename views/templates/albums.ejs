@@ -1,20 +1,10 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-        <title><%= title %> | 'All the Awesome Albums'</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/stylesheets/main.css">
-    </head>
+<%- include('../partials/header', {page: 'Albums'}) %>
+
     <body>
       <a href="/">Artists</a>
 
       <h1>Albums</h1>
-      <form action="get">
+      <form action="">
       <div class="form-group">
           <label for="name">Artist Name:</label>
           <input name="name" type="text">
@@ -33,7 +23,7 @@
           <input class='btn btn-primary' type="submit" value="Submit">
         </form>
       </div>
-      <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+      <script src="/lib/jquery/dist/jquery.min.js"></script>
       <script src="/js/albums.js"></script>
     </body>
 </html>
